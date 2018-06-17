@@ -6,7 +6,11 @@ from pprint import pprint
 
 try:
     api = Finding(appid=PRODUCTION_APPID, config_file=None)
-    response = api.execute('findItemsAdvanced', {'keywords': 'Python'})
+    query = {
+        'keywords': '+Hammond +(a100,""a-100"",B2,""B-2"",B3,""B-3"",C2,""C-2"",C3,""C-3"")'
+    }
+
+    response = api.execute('findItemsAdvanced', query)
     pprint(response.dict())
 except ConnectionError as e:
     print(e)
