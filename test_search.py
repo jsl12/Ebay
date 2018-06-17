@@ -12,6 +12,11 @@ try:
     response = api.execute('findCompletedItems', query)
     df = response_to_dataframe(response)
     print(df.head())
+    df.to_excel(
+        'Hammond Results.xlsx',
+        sheet_name='Results',
+        index=False
+    )
 except ConnectionError as e:
     print(e)
     print(e.response.dict())
