@@ -26,7 +26,11 @@ try:
     }
 
     response = api.execute('findItemsAdvanced', query)
-    pprint(response.dict())
+    results = response.dict()['searchResult']['item']
+    for item in results:
+        # print(item['title'])
+        pprint(item)
+    # pprint(response.dict())
 except ConnectionError as e:
     print(e)
     print(e.response.dict())
