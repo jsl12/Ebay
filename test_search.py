@@ -8,9 +8,8 @@ from pprint import pprint
 
 try:
     api = Finding(appid=PRODUCTION_APPID, config_file=None)
-    response = api.execute('findItemsAdvanced', query)
-    results = response.dict()['searchResult']['item']
-
+    # response = api.execute('findItemsAdvanced', query)
+    response = api.execute('findCompletedItems', query)
     df = response_to_dataframe(response)
     print(df.head())
 except ConnectionError as e:
