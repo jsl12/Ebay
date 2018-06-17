@@ -3,3 +3,5 @@
 .idea
 Accounts.txt
 accounts.py
+__pycache__
+~*
