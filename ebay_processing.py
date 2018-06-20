@@ -17,7 +17,7 @@ def response_to_dataframe(response):
     df['endTime'] = pd.Series([item['listingInfo']['endTime'] for item in results])
     df['watchCount'] = pd.Series([int(item['listingInfo'].get('watchCount', 0)) for item in results])
     df['location'] = pd.Series([item['location'] for item in results])
-    df['postalCode'] = pd.Series([item['postalCode'] for item in results])
+    df['postalCode'] = pd.Series([int(item.get('postalCode',0)) for item in results])
     df['viewItemURL'] = pd.Series([item['viewItemURL'] for item in results])
 
     return df
