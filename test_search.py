@@ -1,5 +1,3 @@
-# testing pull request into zoltan57
-
 import importlib
 import sys
 from ebaysdk.finding import Connection as Finding
@@ -8,15 +6,9 @@ from accounts import PRODUCTION_APPID
 from ebay_processing import response_to_dataframe
 from pprint import pprint
 
-
-
-# Use a variable to refer to the query source and the output files
+# Use a variable to refer to the query and the output files
 #  to make it easier to manage multiple queries.
-#query_src = 'HammondB3'
-query_src = sys.argv[1]
-query_filename =  'query_' + query_src
-
-
+query_shortcut = sys.argv[1]
 
 query_file = importlib.import_module(query_filename)
 
