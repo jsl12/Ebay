@@ -1,12 +1,14 @@
 import pandas as pd
 
+
 def response_to_dataframe(response):
+
     results = response.dict()['searchResult']['item']
 
     df = pd.DataFrame()
     df['itemId'] = pd.Series([item['itemId'] for item in results])
     df['title'] = pd.Series([item['title'] for item in results])
-    df['condition'] = pd.Series([item['condition']['conditionDisplayName'] for item in results])
+    df['conditionDisplayName'] = pd.Series([item['condition']['conditionDisplayName'] for item in results])
     df['currentPrice'] = pd.Series([float(item['sellingStatus']['currentPrice']['value']) for item in results])
     df['sellingState'] = pd.Series([item['sellingStatus']['sellingState'] for item in results])
     df['bidCount'] = pd.Series([int(item['sellingStatus'].get('bidCount', 0)) for item in results])
@@ -19,5 +21,8 @@ def response_to_dataframe(response):
     df['location'] = pd.Series([item['location'] for item in results])
     df['postalCode'] = pd.Series([int(item.get('postalCode',0)) for item in results])
     df['viewItemURL'] = pd.Series([item['viewItemURL'] for item in results])
+    df['sellerUserName'] = pd.Series([item['sellerInfo']['sellerUserName'] for item in results])
+    df['feedbackScore'] = pd.Series([item['sellerInfo']['feedbackScore'] for item in results])
+    df['positiveFeedbackPercent'] = pd.Series([item['sellerInfo']['positiveFeedbackPercent'] for item in results])
 
     return df
