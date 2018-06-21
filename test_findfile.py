@@ -29,9 +29,13 @@ def find_sensitive_path(dir, insensitive_path):
     
 improved_fullpath = find_sensitive_path(directory, filename)
 #print ('Improved filename', improved_fullpath)
+
+# Split off the filename (tail) from the path (head)
 (head,tail) = os.path.split(improved_fullpath)
 #print ('head', head)
 #print ('tail', tail)
+
+# Split off the filename (root) from the extention (ext)
 (root,ext) = os.path.splitext(tail)
 #print ('root', root)
 #print ('ext', ext)
