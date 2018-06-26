@@ -5,6 +5,8 @@ def getvalueofitem(value):
 
         return value if value is not None else None
 
+def isNotEmpty(s):
+    return bool(s and s.strip())
 
 def response_to_dataframe(response):
 
@@ -40,7 +42,17 @@ def response_to_dataframe(response):
         conditionDisplayName = item['condition']['conditionDisplayName']
         currentPrice = item['sellingStatus']['currentPrice']['value']
         sellingState = item['sellingStatus']['sellingState']
+        # strike 1
         bidCount = getvalueofitem(item['sellingStatus']['bidCount'])
+        # strike 2
+        #if isNotEmpty(item['sellingStatus']['bidCount']):
+        #    bidCount = item['sellingStatus']['bidCount']
+        #else:
+        #    bidCount = "empty"
+        # strike 3
+        #bidCounts = item.getElementsByTagName("bidCount")
+        #for count in bidCounts:
+        #    bidCount = count
         listingType = item['listingInfo']['listingType']
         bestOfferEnabled = item['listingInfo']['bestOfferEnabled']
         buyItNowAvailable = item['listingInfo']['buyItNowAvailable']
