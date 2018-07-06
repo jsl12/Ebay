@@ -3,5 +3,6 @@
 .idea
 Accounts.txt
 accounts.py
+ebay.yaml
 __pycache__
 ~*
