@@ -36,7 +36,7 @@ try:
 
     # Write the DataFrame to an Excel spreadsheet
     df.to_excel(
-        api_arg + '.xlsx',
+        api_arg + '-' + query_arg + '.xlsx',
         sheet_name=query_arg,
         index=False
     )
